@@ -2,13 +2,6 @@
 
 ## Local development
 
-### Prerequisites (one-time)
-- Node.js 22
-- [Docker Desktop](https://www.docker.com/products/docker-desktop/) — must be running
-- [AWS SAM CLI](https://github.com/aws/aws-sam-cli/releases/latest/download/AWS_SAM_CLI_64_PY3.msi) — verify with `sam --version`
-- `npm install` (repo root)
-- `cp docker/.env.example docker/.env`
-
 ### Run
 From the repo root:
 
