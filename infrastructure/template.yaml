@@ -1,0 +1,47 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::Serverless-2016-10-31
+Description: Culinary encyclopedia backend
+
+Globals:
+  Function:
+    Runtime: nodejs22.x
+    Architectures: [arm64]
+    Timeout: 10
+    MemorySize: 256
+    Environment:
+      Variables:
+        DB_HOST: ""
+        DB_PORT: "5432"
+        DB_USER: ""
+        DB_PASSWORD: ""
+        DB_NAME: ""
+
+Resources:
+  RecipesFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: ../backend
+      Handler: recipe-handler.handler
+      Events:
+        ListRecipes:
+          Type: HttpApi
+          Properties:
+            Path: /recipes
+            Method: GET
+        GetRecipe:
+          Type: HttpApi
+          Properties:
+            Path: /recipes/{id}
+            Method: GET
+    Metadata:
+      BuildMethod: esbuild
+      BuildProperties:
+        EntryPoints:
+          - src/recipes/recipe-handler.ts
+        Target: es2022
+        Sourcemap: true
+        Minify: false
+
+Outputs:
+  ApiUrl:
+    Value: !Sub "https://${ServerlessHttpApi}.execute-api.${AWS::Region}.amazonaws.com"

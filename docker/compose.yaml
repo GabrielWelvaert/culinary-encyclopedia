@@ -1,0 +1,24 @@
+name: culinary-encyclopedia
+
+services:
+  postgres:
+    image: postgres:17
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./postgres/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    networks:
+      - culinary-net
+
+volumes:
+  pgdata:
+
+networks:
+  culinary-net:
+    # fixed name so `sam local start-api --docker-network culinary-net` can join it
+    name: culinary-net

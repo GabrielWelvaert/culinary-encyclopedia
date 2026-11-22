@@ -1,0 +1,19 @@
+{
+  "name": "@culinary/backend",
+  "private": true,
+  "scripts": {
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "pg": "^8.16.0"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.149",
+    "@types/node": "^22.15.0",
+    "@types/pg": "^8.15.0",
+    "esbuild": "^0.25.0",
+    "typescript": "~5.8.3",
+    "vitest": "^3.2.0"
+  }
+}
