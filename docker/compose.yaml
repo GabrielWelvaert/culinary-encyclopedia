@@ -1,4 +1,4 @@
-name: culinary-encyclopedia
+name: culinary-encyclopedia-dev-db
 
 services:
   postgres:

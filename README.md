@@ -14,6 +14,7 @@ npm run web        # Vite on http://localhost:5173 (separate terminal)
 Open http://localhost:5173.
 
 - Backend changes: restart `npm run api` (it rebuilds on start). Frontend changes hot-reload.
+- Stop the API or web server with Ctrl+C in its terminal. From another terminal: `npm run api:stop` (also removes SAM's Lambda containers) or `npm run web:stop`.
 - `npm run db:down` — stop Postgres.
 - `npm run db:reset` — wipe the database and re-run `docker/postgres/init.sql`.
 

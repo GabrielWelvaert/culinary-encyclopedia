@@ -7,7 +7,14 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "noEmit": true,
-    "types": ["node"]
+    "types": ["node"],
+    "verbatimModuleSyntax": true,
+    // Resolved by path, not as an npm dependency: `sam build` runs `npm install`
+    // on a copy of backend/ outside the workspace, where @culinary/shared can't
+    // be found. Only `import type` is used, so esbuild erases these imports.
+    "paths": {
+      "@culinary/shared": ["../shared/src/index.ts"]
+    }
   },
   "include": ["src"]
 }

@@ -1,8 +1,9 @@
 import { describe, expect, it } from "vitest";
-import type { Recipe, RecipeRepository } from "./recipe-repository";
+import type { Recipe } from "@culinary/shared";
+import type { RecipeRepository } from "./recipe-repository";
 import { createRecipeService } from "./recipe-service";
 
-const stew: Recipe = { id: 1, name: "Beef Stew", createdAt: new Date("2026-01-01") };
+const stew: Recipe = { id: 1, name: "Beef Stew" };
 
 const fakeRepo: RecipeRepository = {
   findAll: async () => [stew],

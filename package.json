@@ -2,6 +2,7 @@
   "name": "culinary-encyclopedia",
   "private": true,
   "workspaces": [
+    "shared",
     "frontend",
     "backend"
   ],
@@ -9,8 +10,10 @@
     "db:up": "docker compose -f docker/compose.yaml up -d",
     "db:down": "docker compose -f docker/compose.yaml down",
     "db:reset": "docker compose -f docker/compose.yaml down -v && docker compose -f docker/compose.yaml up -d",
-    "api": "cd infrastructure && sam build && sam local start-api --docker-network culinary-net --env-vars env.local.json",
+    "api": "cd infrastructure && sam build && sam local start-api --warm-containers EAGER --docker-network culinary-net --env-vars env.local.json",
+    "api:stop": "node scripts/stop.mjs api",
     "web": "npm run dev -w frontend",
+    "web:stop": "node scripts/stop.mjs web",
     "status": "node scripts/status.mjs",
     "test": "npm run test --workspaces --if-present",
     "typecheck": "npm run typecheck --workspaces --if-present"

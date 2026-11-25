@@ -1,4 +1,5 @@
-import type { Recipe, RecipeRepository } from "./recipe-repository";
+import type { Recipe } from "@culinary/shared";
+import type { RecipeRepository } from "./recipe-repository";
 
 export interface RecipeService {
   listRecipes(): Promise<Recipe[]>;
