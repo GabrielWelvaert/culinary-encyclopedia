@@ -5,7 +5,7 @@ export function AppLayout() {
   return (
     <div className="flex min-h-screen flex-col">
       <header className="fixed top-0 z-40 w-full border-b border-border bg-bg shadow-lg">
-        <div className="mx-auto flex h-16 max-w-[1220px] items-center gap-5 px-4">
+        <div className="mx-auto flex h-16 max-w-page items-center gap-5 px-4">
           <ThemeToggle />
           <Link
             to="/"
@@ -16,7 +16,7 @@ export function AppLayout() {
         </div>
       </header>
 
-      <main className="mx-auto w-full max-w-[1220px] flex-1 px-4 pt-24 pb-8">
+      <main className="mx-auto w-full max-w-page flex-1 px-4 pt-24 pb-8">
         <Outlet />
       </main>
     </div>

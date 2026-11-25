@@ -28,6 +28,11 @@
   --color-accent: var(--accent);
 }
 
+/* Page content width: max-w-page. */
+@theme {
+  --container-page: 1220px;
+}
+
 html {
   color-scheme: light;
 }
